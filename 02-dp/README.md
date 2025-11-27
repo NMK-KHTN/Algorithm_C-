@@ -26,8 +26,8 @@ Mỗi tuần có danh sách bài tập + checkbox để theo dõi tiến độ.
 
 ### ✓ Danh sách bài tập
 
-* [X] 21. Merge Two Sorted Lists
-* [X] 100. Same Tree
+* [ ] 21. Merge Two Sorted Lists
+* [ ] 100. Same Tree
 * [ ] 101. Symmetric Tree
 * [ ] 104. Maximum Depth of Binary Tree
 * [ ] 110. Balanced Binary Tree
