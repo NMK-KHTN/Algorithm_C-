@@ -55,7 +55,7 @@ Mỗi tuần có danh sách bài tập + checkbox để theo dõi tiến độ.
 
 ### ✓ Danh sách bài tập
 
-* [ ] 70. Climbing Stairs
+* [x] 70. Climbing Stairs
 * [ ] 746. Min Cost Climbing Stairs
 * [ ] 198. House Robber
 * [ ] 213. House Robber II
