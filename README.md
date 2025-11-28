@@ -13,7 +13,7 @@ Dành cho luyện thi, phỏng vấn và competitive programming.
 
 | Phần | Chủ đề |
 |------|------|
-| Basic | Prefix Sum, Two Pointers, Binary Search |
+| Basic | Prefix Sum, Two Pointers, Binary Search, Pointer |
 | DP | 0/1 Knapsack |
 | Graph | BFS, Dijkstra |
 | Advanced | Segment Tree |
