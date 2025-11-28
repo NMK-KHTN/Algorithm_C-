@@ -1,0 +1,143 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+==========================================================
+  1) TRUYỀN CON TRỎ VÀO HÀM
+==========================================================
+*/
+
+// Hàm thay đổi giá trị qua con trỏ cấp 1
+void updateValue(int* p) {
+    *p = 999; // thay đổi giá trị vùng nhớ p đang trỏ tới
+}
+
+// Hàm thay đổi giá trị qua con trỏ cấp 2
+void updatePointer(int** p2) {
+    **p2 = 777;  // thay đổi giá trị thông qua pointer-to-pointer
+}
+
+/*
+==========================================================
+  2) CON TRỎ TRONG STRUCT
+==========================================================
+*/
+struct Student {
+    string name;
+    int* scores;  // mảng động trong struct
+    int n;
+
+    Student(string name, int n) : name(name), n(n) {
+        scores = new int[n];  // cấp phát mảng động trong struct
+    }
+
+    ~Student() {
+        delete[] scores; // giải phóng mảng trong struct
+    }
+};
+
+/*
+==========================================================
+  3) TẠO VÀ XOÁ MẢNG 1 CHIỀU BẰNG CON TRỎ
+==========================================================
+*/
+
+int* createArray1D(int n) {
+    int* arr = new int[n];
+    for (int i = 0; i < n; i++) arr[i] = i + 1;
+    return arr; // trả về con trỏ
+}
+
+/*
+==========================================================
+  4) MẢNG 2 CHIỀU DÙNG CON TRỎ CẤP 2
+==========================================================
+*/
+
+int** createArray2D(int rows, int cols) {
+    int** arr = new int*[rows]; // con trỏ cấp 2 -> mảng con trỏ cấp 1
+
+    for (int i = 0; i < rows; i++) {
+        arr[i] = new int[cols];
+        for (int j = 0; j < cols; j++) {
+            arr[i][j] = i * 10 + j;
+        }
+    }
+    return arr;
+}
+
+void deleteArray2D(int** arr, int rows) {
+    for (int i = 0; i < rows; i++)
+        delete[] arr[i];
+    delete[] arr;
+}
+
+/*
+==========================================================
+  MAIN: TỔNG HỢP TOÀN BỘ KIẾN THỨC VỀ CON TRỎ
+==========================================================
+*/
+
+int main() {
+    cout << "===== 1) Con tro co ban =====\n";
+    int x = 10;
+    int* p = &x;
+
+    cout << "Gia tri x = " << x << "\n";
+    cout << "Dia chi p = " << p << "\n";
+    cout << "Dereference *p = " << *p << "\n";
+
+    *p = 20;
+    cout << "x sau khi thay doi qua con tro = " << x << "\n\n";
+
+
+    cout << "===== 2) Con tro trong ham =====\n";
+    int y = 50;
+    updateValue(&y);
+    cout << "y sau updateValue = " << y << "\n";
+
+    int z = 100;
+    int* pz = &z;
+    updatePointer(&pz);
+    cout << "z sau updatePointer = " << z << "\n\n";
+
+
+    cout << "===== 3) Mang 1 chieu dong =====\n";
+    int n = 5;
+    int* arr1D = createArray1D(n);
+    for (int i = 0; i < n; i++)
+        cout << arr1D[i] << " ";
+    cout << "\n";
+    delete[] arr1D; // GIẢI PHÓNG BẮT BUỘC
+    cout << "Da delete mang 1 chieu.\n\n";
+
+
+    cout << "===== 4) Mang 2 chieu dung con tro cap 2 =====\n";
+    int rows = 3, cols = 4;
+    int** arr2D = createArray2D(rows, cols);
+
+    cout << "Mang 2D:\n";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++)
+            cout << arr2D[i][j] << " ";
+        cout << "\n";
+    }
+    deleteArray2D(arr2D, rows);
+    cout << "Da delete mang 2 chieu.\n\n";
+
+
+    cout << "===== 5) Con tro trong struct =====\n";
+    Student st("Khai", 3);
+    st.scores[0] = 10;
+    st.scores[1] = 9;
+    st.scores[2] = 8;
+
+    cout << "Thong tin student:\n";
+    cout << "Name: " << st.name << "\nScores: ";
+    for (int i = 0; i < st.n; i++) cout << st.scores[i] << " ";
+    cout << "\n";
+    // Destructor tự động delete
+
+    cout << "\n===== The End =====\n";
+    return 0;
+}
