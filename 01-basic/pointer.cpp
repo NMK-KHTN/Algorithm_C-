@@ -160,3 +160,141 @@ Tạo struct Student và hàm nhập/xuất bằng pointer
 Tạo mảng động 2 chiều bằng con trỏ cấp 2
 
 Viết hàm tháo gỡ vùng nhớ động
+
+
+
+Bài tập:
+
+Bài 1
+int a = 5;
+int *p = &a;
+*p = 10;
+cout << a;
+
+
+❓ Hỏi:
+
+Chương trình đúng hay sai?
+
+In ra bao nhiêu?
+
+Bài 2
+int a = 7;
+int b = 3;
+int *p = &a;
+p = &b;
+*p = 9;
+cout << a << " " << b;
+
+
+❓ Hỏi:
+
+Có lỗi không?
+
+Output là gì?
+
+Bài 3
+int a = 4;
+int *p;
+*p = 10;
+cout << a;
+
+
+❓ Hỏi:
+
+Chương trình biên dịch được không?
+
+Nếu chạy thì đúng hay lỗi runtime?
+
+Bài 4
+int a = 6;
+int *p = &a;
+int **pp = &p;
+**pp = 20;
+cout << a;
+
+
+❓ Hỏi:
+
+Output?
+
+*p bằng bao nhiêu?
+
+Bài 5
+int a = 1;
+int b = 2;
+int *p = &a;
+int *q = &b;
+p = q;
+*q = 5;
+cout << a << " " << b;
+
+
+❓ Hỏi:
+
+In ra gì?
+
+p đang trỏ tới biến nào?
+
+🔹 PHẦN B – 5 BÀI TẬP MẢNG 1 CHIỀU & 2 CHIỀU
+🟦 MẢNG 1 CHIỀU
+Bài 6
+int a[] = {1, 2, 3};
+int *p = a;
+cout << *(p + 1);
+
+
+❓ Hỏi:
+
+Output?
+
+Bài 7
+int a[] = {4, 5, 6};
+cout << *(a + 2);
+
+
+❓ Hỏi:
+
+In ra bao nhiêu?
+
+a + 2 trỏ tới đâu?
+
+Bài 8
+int a[] = {10, 20, 30};
+int *p = &a[0];
+p++;
+cout << *p;
+
+
+❓ Hỏi:
+
+Output?
+
+p trỏ tới phần tử nào?
+
+🟩 MẢNG 2 CHIỀU
+Bài 9
+int a[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+cout << a[1][2];
+
+
+❓ Hỏi:
+
+In ra bao nhiêu?
+
+Bài 10
+int a[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+cout << *(*(a + 1) + 1);
+
+
+❓ Hỏi:
+
+Output?
+
+Biểu thức *(a + 1) tương đương gì?
